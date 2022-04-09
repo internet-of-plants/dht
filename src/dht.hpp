@@ -1,7 +1,7 @@
 #ifndef IOP_LIB_SENSORS_DHT_HPP
 #define IOP_LIB_SENSORS_DHT_HPP
 
-#include <iop/io.hpp>
+#include <iop-hal/io.hpp>
 #include <stdint.h>
 
 namespace dht {

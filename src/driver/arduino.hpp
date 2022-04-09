@@ -4,7 +4,7 @@
 #include <dht.hpp>
 #include <DHT.h>
 
-#include <iop/panic.hpp>
+#include <iop-hal/panic.hpp>
 
 namespace dht {
 #define SENSOR(self) static_cast<DHT*>((self).sensor)
