@@ -8,7 +8,7 @@ namespace dht {
 class Dht {
     void *sensor;
 public:
-    Dht(driver::io::Pin pin, uint8_t dhtVersion) noexcept;
+    Dht(iop_hal::io::Pin pin, uint8_t dhtVersion) noexcept;
     auto begin() noexcept -> void;
     auto measureTemperature() noexcept -> float;
     auto measureHumidity() noexcept -> float;
