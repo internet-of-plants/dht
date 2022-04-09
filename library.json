@@ -30,6 +30,9 @@
       "platforms": ["espressif8266", "espressif32"]
     }
   ],
-  "platforms": ["espressif8266", "espressif32","native"]
+  "platforms": ["espressif8266", "espressif32","native"],
+  "build": {
+    "libArchive": false
+  }
 }
   
