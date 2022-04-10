@@ -9,7 +9,7 @@
 namespace dht {
 #define SENSOR(self) static_cast<DHT*>((self).sensor)
 
-Dht::Dht(const iop_hal::PinRaw pin, const uint8_t dhtVersion) noexcept: sensor(new (std::nothrow) DHT(pin), dhtVersion)) {
+Dht::Dht(const iop_hal::PinRaw pin, const uint8_t dhtVersion) noexcept: sensor(new (std::nothrow) DHT(pin, dhtVersion)) {
     iop_assert(this->sensor != nullptr, IOP_STR("Unable to allocate DHT"));
 }
 
