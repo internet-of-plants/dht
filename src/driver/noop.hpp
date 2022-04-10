@@ -4,9 +4,9 @@
 #include <dht.hpp>
 
 namespace dht {
-Dht::Dht(const iop_hal::PinRaw pin, const uint8_t dhtVersion) noexcept {
+Dht::Dht(const iop_hal::PinRaw pin, const Version version) noexcept {
     (void) pin;
-    (void) dhtVersion;
+    (void) version;
 }
 
 auto Dht::begin() noexcept -> void {}

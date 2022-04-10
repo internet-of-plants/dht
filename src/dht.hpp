@@ -5,10 +5,17 @@
 #include <stdint.h>
 
 namespace dht {
+enum Version {
+  DHT11 = 11,
+  DHT12 = 12,
+  DHT22 = 22,
+  AM2301 = 21
+};
+
 class Dht {
     void *sensor;
 public:
-    Dht(iop_hal::PinRaw pin, uint8_t dhtVersion) noexcept;
+    Dht(iop_hal::PinRaw pin, Version version) noexcept;
     auto begin() noexcept -> void;
     auto measureTemperature() noexcept -> float;
     auto measureHumidity() noexcept -> float;
