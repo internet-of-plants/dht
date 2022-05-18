@@ -5,9 +5,10 @@
 #include <stdint.h>
 
 namespace dht {
-enum Version {
+enum class Version {
   DHT11 = 11,
   DHT12 = 12,
+  DHT21 = 21,
   DHT22 = 22,
   AM2301 = 21
 };
