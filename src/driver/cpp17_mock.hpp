@@ -19,7 +19,7 @@ auto randomTemperature() -> float {
     return static_cast<float>(dist(rng)) / 10.;
 }
 
-auto randomTemperatureVariation(uint16_t current) -> float {
+auto randomTemperatureVariation(float current) -> float {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist(-3, 3);
@@ -33,7 +33,7 @@ auto randomHumidity() -> float {
     return static_cast<float>(dist(rng)) / 100.;
 }
 
-auto randomHumidityVariation(uint16_t current) -> float {
+auto randomHumidityVariation(float current) -> float {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist(-2, 2);
