@@ -5,6 +5,8 @@
 
 #include <random>
 
+namespace dht { 
+
 struct Mock {
     float temperature;
     float humidity;
@@ -40,7 +42,6 @@ auto randomHumidityVariation(float current) -> float {
     return std::max(std::min(current + static_cast<float>(dist(rng)) / 100., 0.08), 0.06);
 }
 
-namespace dht { 
 Dht::Dht(const iop_hal::PinRaw pin, const Version version) noexcept: sensor(new Mock(randomTemperature(), randomHumidity())) {
     (void) pin;
     (void) version;
