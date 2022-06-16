@@ -3,12 +3,14 @@
 
 #include <dht.hpp>
 
+#include <random>
+
 struct Mock {
     float temperature;
     float humidity;
 
     Mock(float temperature, float humidity): temperature(temperature), humidity(humidity) {}
-}
+};
 
 auto randomTemperature() -> float {
     std::random_device dev;
@@ -69,16 +71,16 @@ auto Dht::measureHeatIndex() noexcept -> float {
   if (hi > 79) {
     hi = -42.379 + 2.04901523 * temperature + 10.14333127 * humidity +
          -0.22475541 * temperature * humidity +
-         -0.00683783 * pow(temperature, 2) +
-         -0.05481717 * pow(humidity, 2) +
-         0.00122874 * pow(temperature, 2) * humidity +
-         0.00085282 * temperature * pow(humidity, 2) +
-         -0.00000199 * pow(temperature, 2) * pow(humidity, 2);
+         -0.00683783 * std::pow(temperature, 2) +
+         -0.05481717 * std::pow(humidity, 2) +
+         0.00122874 * std::pow(temperature, 2) * humidity +
+         0.00085282 * temperature * std::pow(humidity, 2) +
+         -0.00000199 * std::pow(temperature, 2) * std::pow(humidity, 2);
 
     if ((humidity < 13) && (temperature >= 80.0) &&
         (temperature <= 112.0))
       hi -= ((13.0 - humidity) * 0.25) *
-            sqrt((17.0 - abs(temperature - 95.0)) * 0.05882);
+            std::sqrt((17.0 - abs(temperature - 95.0)) * 0.05882);
 
     else if ((humidity > 85.0) && (temperature >= 80.0) &&
              (temperature <= 87.0))
@@ -92,6 +94,7 @@ auto Dht::operator=(Dht && other) noexcept -> Dht & {
     delete reinterpret_cast<Mock*>(this->sensor);
     this->sensor = other.sensor;
     other.sensor = nullptr;
+    return *this;
 }
 Dht::~Dht() noexcept {
     delete reinterpret_cast<Mock*>(this->sensor);
