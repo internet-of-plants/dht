@@ -32,14 +32,14 @@ auto randomHumidity() -> float {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist(60, 80);
-    return static_cast<float>(dist(rng)) / 100.;
+    return static_cast<float>(dist(rng));
 }
 
 auto randomHumidityVariation(float current) -> float {
     std::random_device dev;
     std::mt19937 rng(dev());
     std::uniform_int_distribution<std::mt19937::result_type> dist(-2, 2);
-    return std::max(std::min(current + static_cast<float>(dist(rng)) / 100., 0.08), 0.06);
+    return std::max(std::min(current + static_cast<float>(dist(rng)), 80.), 60.);
 }
 
 Dht::Dht(const iop_hal::PinRaw pin, const Version version) noexcept: sensor(new Mock(randomTemperature(), randomHumidity())) {
