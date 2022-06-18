@@ -20,7 +20,6 @@ public:
     auto begin() noexcept -> void;
     auto measureTemperature() noexcept -> float;
     auto measureHumidity() noexcept -> float;
-    auto measureHeatIndex() noexcept -> float;
 
     auto operator=(Dht && other) noexcept -> Dht &;
     ~Dht() noexcept;

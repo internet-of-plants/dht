@@ -25,10 +25,6 @@ auto Dht::measureHumidity() noexcept -> float {
     iop_assert(this->sensor != nullptr, IOP_STR("Sensor is nullptr"));
     return SENSOR(*this)->readHumidity();
 }
-auto Dht::measureHeatIndex() noexcept -> float {
-    return SENSOR(*this)->computeHeatIndex(false);
-}
-
 auto Dht::operator=(Dht && other) noexcept -> Dht & {
     delete SENSOR(*this);
     this->sensor = other.sensor;

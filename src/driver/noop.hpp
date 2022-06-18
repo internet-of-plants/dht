@@ -12,7 +12,6 @@ Dht::Dht(const iop_hal::PinRaw pin, const Version version) noexcept {
 auto Dht::begin() noexcept -> void {}
 auto Dht::measureTemperature() noexcept -> float { return 0.; }
 auto Dht::measureHumidity() noexcept -> float { return 0.; }
-auto Dht::measureHeatIndex() noexcept -> float { return 0.; }
 
 auto Dht::operator=(Dht && other) noexcept -> Dht & { (void) other; return *this; }
 Dht::~Dht() noexcept {}
