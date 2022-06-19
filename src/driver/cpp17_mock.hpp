@@ -22,8 +22,8 @@ auto randomTemperature() -> float {
 }
 
 auto randomTemperatureVariation(float current) -> float {
-    if (current <= 25.) return current + 3.;
-    if (current >= 35.) return current - 3.;
+    if (current <= 26.) return current + 3.;
+    if (current >= 34.) return current - 3.;
 
     std::random_device dev;
     std::mt19937 rng(dev());
@@ -39,8 +39,8 @@ auto randomHumidity() -> float {
 }
 
 auto randomHumidityVariation(float current) -> float {
-    if (current <= 60.) return current + 3.;
-    if (current >= 80.) return current - 3.;
+    if (current <= 61.) return current + 3.;
+    if (current >= 79.) return current - 3.;
 
     std::random_device dev;
     std::mt19937 rng(dev());
