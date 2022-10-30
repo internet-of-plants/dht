@@ -10,19 +10,19 @@ namespace dht {
 #define SENSOR(self) static_cast<DHT*>((self).sensor)
 
 Dht::Dht(const iop_hal::PinRaw pin, const Version version) noexcept: sensor(new (std::nothrow) DHT(pin, static_cast<uint8_t>(version))) {
-    iop_assert(this->sensor != nullptr, IOP_STR("Unable to allocate DHT"));
+    iop_assert(this->sensor, IOP_STR("Unable to allocate DHT"));
 }
 
 auto Dht::begin() noexcept -> void {
-    iop_assert(this->sensor != nullptr, IOP_STR("Sensor is nullptr"));
+    iop_assert(this->sensor, IOP_STR("Sensor is nullptr"));
     SENSOR(*this)->begin();
 }
 auto Dht::measureTemperature() noexcept -> float {
-    iop_assert(this->sensor != nullptr, IOP_STR("Sensor is nullptr"));
+    iop_assert(this->sensor, IOP_STR("Sensor is nullptr"));
     return SENSOR(*this)->readTemperature();
 }
 auto Dht::measureHumidity() noexcept -> float {
-    iop_assert(this->sensor != nullptr, IOP_STR("Sensor is nullptr"));
+    iop_assert(this->sensor, IOP_STR("Sensor is nullptr"));
     return SENSOR(*this)->readHumidity();
 }
 auto Dht::operator=(Dht && other) noexcept -> Dht & {
