@@ -5,7 +5,7 @@
 
 #include <random>
 
-namespace dht { 
+namespace dht {
 
 struct Mock {
     float temperature;
